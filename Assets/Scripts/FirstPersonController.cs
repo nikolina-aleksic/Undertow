@@ -9,8 +9,8 @@ public class FirstPersonController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 5f;
-    [SerializeField] private float jumpHeight = 1.5f;
+    [SerializeField] private float walkSpeed = 15f;   // for game - 4
+    [SerializeField] private float jumpHeight = 1f;
     [SerializeField] private float g = -9.81f;
 
     [Header("Camera")]
@@ -21,6 +21,19 @@ public class FirstPersonController : MonoBehaviour
     private CharacterController controller;
     private float verticalVelocity;
     private float xRotation = 0f;
+
+
+    /*                        UNDERWATER                  LAND
+            walkSpeed = 2-2.5                           | 4
+            g = -1 / -2 (0 = neutral)                   | -9.81
+            max brzina tonjenja = -2 do -3
+            jumpHeight = 0.3-0.5 / ukloniti             | 1
+            vertikalno plivanje (Space/Ctrl) = 1.5 - 2
+            drag (otpor vode) = 2-4
+            grounded verticalVelocity = 0               | -2
+            mouseSensitivity = 1.5  (1-2)               | 2
+            maxLookAngle = 90 (ili 85)
+    */
 
     void Awake()
     {
